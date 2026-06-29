@@ -59,7 +59,6 @@ body::after {
 }
 
 main,
-nav,
 footer,
 .card,
 .start-card {
@@ -67,8 +66,18 @@ footer,
   z-index: 1;
 }
 
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 main {
-  padding-bottom: 72px;
+  padding-top: 90px;
+  padding-bottom: 92px;
 }
 
 @keyframes driftGlow {

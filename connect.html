@@ -170,6 +170,63 @@
             </div>
         </section>
 
+        <section class="py-5 contact-form-section">
+            <div class="container">
+                <div class="form-card mx-auto">
+                    <div class="form-header text-center mb-4">
+                        <p class="section-label">Send a message</p>
+                        <h2>Contact me directly</h2>
+                        <p class="section-copy">Share a few details and I’ll get back to you soon.</p>
+                    </div>
+
+                    <div id="contact-success-alert" class="alert alert-success d-none" role="alert"></div>
+
+                    <form id="contactForm" action="mailto:ahmedbanna@example.com" method="GET" enctype="text/plain" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your email address" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Reason to contact</label>
+                                <p class="form-note">Pick the option that best fits your message.</p>
+                                <div class="reason-pills">
+                                    <label class="reason-pill">
+                                        <input type="radio" name="reason" value="Project inquiry" required>
+                                        <span>Project inquiry</span>
+                                    </label>
+                                    <label class="reason-pill">
+                                        <input type="radio" name="reason" value="Collaboration">
+                                        <span>Collaboration</span>
+                                    </label>
+                                    <label class="reason-pill">
+                                        <input type="radio" name="reason" value="Feedback">
+                                        <span>Feedback</span>
+                                    </label>
+                                    <label class="reason-pill">
+                                        <input type="radio" name="reason" value="Other">
+                                        <span>Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control message-field" id="message" name="message" rows="6" placeholder="Describe your idea, project, or feedback here" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-danger btn-lg px-5">Send message</button>
+                                <p class="form-footnote">I’ll reply as soon as I can.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <footer class="footer py-4">
             <div
                 class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
@@ -183,6 +240,7 @@
     <!-- ✅ Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/contact-form.js"></script>
 
 </body>
 

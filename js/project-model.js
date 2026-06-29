@@ -30,34 +30,63 @@ function renderMediaGallery(mediaItems) {
 
     return `
         <div class="modal-gallery">
-            ${mediaItems.map(item => {
+            ${mediaItems.map((item, index) => {
                 if (item.type === "video") {
-                    // Detect video type from file extension
                     const fileExt = item.src.split('.').pop().toLowerCase();
                     let mimeType = "video/mp4";
                     if (fileExt === "mkv") mimeType = "video/x-matroska";
                     else if (fileExt === "webm") mimeType = "video/webm";
-                    
+
                     return `
-                        <div class="modal-media-card">
-                            <video controls preload="metadata" class="modal-media">
-                                <source src="${item.src}" type="${mimeType}">
-                                Your browser does not support the video tag.
-                            </video>
-                            ${item.caption ? `<p class="media-caption">${item.caption}</p>` : ""}
+                        <div class="modal-media-card" style="--i:${index}">
+                            <div class="media-inner">
+                                <video controls preload="metadata" class="modal-media">
+                                    <source src="${item.src}" type="${mimeType}">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="media-overlay">
+                                    <i class="bi bi-play-circle"></i>
+                                </div>
+                            </div>
                         </div>
                     `;
                 }
 
                 return `
-                    <div class="modal-media-card">
-                        <img src="${item.src}" alt="${item.alt || "Project preview"}" class="modal-media">
-                        ${item.caption ? `<p class="media-caption">${item.caption}</p>` : ""}
+                    <div class="modal-media-card" style="--i:${index}" onclick="openLightbox('${item.src}', '${item.alt || ''}')">
+                        <div class="media-inner">
+                            <img src="${item.src}" alt="${item.alt || 'Project preview'}" class="modal-media" loading="lazy">
+                            <div class="media-overlay">
+                                <i class="bi bi-zoom-in"></i>
+                                <span>${item.alt || 'View image'}</span>
+                            </div>
+                        </div>
                     </div>
                 `;
             }).join("")}
         </div>
+
+        <div id="gallery-lightbox" class="gallery-lightbox" onclick="closeLightbox()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-img" src="" alt="" class="lightbox-img">
+        </div>
     `;
+}
+
+function openLightbox(src, alt) {
+    const lb = document.getElementById('gallery-lightbox');
+    const img = document.getElementById('lightbox-img');
+    if (!lb || !img) return;
+    img.src = src;
+    img.alt = alt;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lb = document.getElementById('gallery-lightbox');
+    if (lb) lb.classList.remove('active');
+    document.body.style.overflow = 'hidden'; // modal still open
 }
 
 // Create the full HTML content shown in the modal for a selected project

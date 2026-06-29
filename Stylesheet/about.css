@@ -1,0 +1,50 @@
+/* ABOUT SECTION */
+.about-section {
+    padding-top: 10px;
+}
+
+.about-right {
+    float: right;
+}
+
+/* TEXT */
+.about-text {
+    color: #bbb;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.about-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor:move;
+}
+
+.about-item:hover div{
+    background: #dc3545;
+
+}
+
+.about-item:hover i{
+    color: white;
+}
+
+/* ICON BOX */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: #14171c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+/* ICON INSIDE */
+.icon-box i {
+    color: #dc3545;
+    font-size: 16px;
+}
+

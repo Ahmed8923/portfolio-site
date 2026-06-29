@@ -1,0 +1,181 @@
+/* image glow effect */
+img {
+  transition: transform 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+h2:hover {
+  color: #dc3545;
+  transition: color 0.3s ease;
+}
+
+h2 span:hover {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+/* START SECTION CARDS */
+.start-card {
+  text-decoration: none;
+  color: #ccc;
+  border: none;
+  outline: none;
+  background-color: #222428;
+  box-shadow: -9px 6px 17px -4px rgba(0, 0, 0, 0.82);
+  transition: all 0.3s ease;
+  display: block;
+  height: 100%;
+}
+
+.start-card i {
+  color: #dc3545;
+}
+
+.start-card h6 {
+  font-weight: 500;
+}
+
+/* HOVER EFFECT */
+.start-card:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.start-card:hover i {
+  color: white;
+}
+
+.card {
+  border: none;
+  outline: none;
+  background-color: #222428;
+  box-shadow: -9px 6px 17px -4px rgba(0, 0, 0, 0.82);
+
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.card p,
+h4 {
+  color: #ffffff;
+}
+
+.card h4 {
+  min-height: 60px;
+}
+
+.circle {
+  height: 70px;
+  width: 70px;
+  background-color: lightgray;
+  color: black;
+  padding: 12px;
+  font-size: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.card:hover .circle {
+  background-color: #dc3545;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.project-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  background: #343a40;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tag:hover {
+  transform: translateY(-3px);
+}
+
+.project-modal {
+    display: none;
+    /* ✅ HIDDEN by default */
+    position: fixed;
+    inset: 0;
+
+    background: #222428;
+    z-index: 2000;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.modal-content {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-story {
+  background: #292828;
+}
+
+.about-story p {
+  color: #d9d9d9;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.about-story img {
+  transition: 0.4s;
+}
+
+.about-story img:hover {
+  transform: translateY(-8px);
+}

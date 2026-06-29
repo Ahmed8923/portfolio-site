@@ -1,0 +1,196 @@
+.projects-page {
+    background: #222428;
+    color: white;
+}
+
+/* timeline container */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* BACK LINE (grey base) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* PROGRESS LINE (red animated fill) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: #dc3545;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    animation: fillLine 2s ease forwards;
+}
+
+/* animation for progress line */
+@keyframes fillLine {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+/* ITEMS */
+.timeline-item {
+    width: 50%;
+    padding: 20px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+    cursor: crosshair;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.content {
+    border: none;
+    outline: none;
+    background-color: #222428;
+    box-shadow: -9px 6px 17px -4px rgba(0, 0, 0, 0.82);
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.content:hover {
+    transform: translateY(-5px);
+}
+
+/* DATE */
+.date {
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* TAGS */
+.tag {
+    display: inline-block;
+    background: #1f1f1f;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.tag:hover {
+    background-color: #dc3545;
+    transition: all 0.3s ease;
+
+}
+
+/* SCROLL ANIMATION ACTIVE STATE */
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .timeline::before,
+    .timeline::after {
+        left: 10px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 40px;
+    }
+}
+
+.filter-btn .cat-btn {
+    margin: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.filter-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* match your theme */
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    backdrop-filter: blur(5px);
+}
+
+
+.filter-btn.active,
+.cat-btn.active {
+    background: #dc3545;
+    color: white;
+}
+
+
+.project-modal {
+    display: none;
+    /* ✅ HIDDEN by default */
+    position: fixed;
+    inset: 0;
+
+    background: #222428;
+    z-index: 2000;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.modal-content {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

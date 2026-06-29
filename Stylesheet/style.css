@@ -1,0 +1,83 @@
+
+body {
+  background-color: #222428 !important;
+}
+
+/* softer text color */
+.text-light {
+  color: #d1d1d1 !important;
+}
+
+
+
+.navbar .nav-link {
+  color: #ddd !important;
+}
+
+.navbar .nav-link:hover {
+  color: #dc3545 !important; /* your red */
+}
+
+.navbar-brand {
+  color: #dc3545 !important;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  left: 0;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+
+
+.footer {
+    border-top: 1px solid #333;
+    background: #181a1d;
+    text-align: center;
+}
+
+.footer p {
+    color: #bdbdbd;
+    margin: 0;
+    font-size: 14px;
+}
+
+.back-to-top {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: .3s;
+    margin-top: 8px;
+}
+
+.back-to-top:hover {
+    color: #dc3545;
+}
+
+/* Desktop adjustment */
+@media (min-width: 768px) {
+    .back-to-top {
+        margin-top: 0;
+    }
+}
+

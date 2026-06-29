@@ -1,154 +1,118 @@
-const projectDetails = {
+// Store fetched project data by project ID so the modal can open the correct entry
+let projectDetails = {};
+let projectDataPromise = null;
 
-    project1: `
-    <h2>Promotional Website</h2>
-    <p class="text-muted">Oct 2025</p>
+// Load all project data from the SQLite-backed API once and reuse it
+async function loadProjects() {
+    if (projectDataPromise) return projectDataPromise;
 
+    projectDataPromise = (async () => {
+        try {
+            const response = await fetch('/api/projects');
+            const projectsArray = await response.json();
 
-    <p>
-      This project is a full promotional website designed for a public figure.
-      It includes product catalogue, contact form, and responsive design.
-    </p>
+            projectsArray.forEach(project => {
+                projectDetails[project.id] = project;
+            });
+        } catch (error) {
+            console.error('Error loading projects:', error);
+        }
+    })();
 
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">UI Design</span>
-    </div>
+    return projectDataPromise;
+}
 
-    <img src="img/project-images/pr1.png" class="img-fluid rounded my-4">
-    <br>
-    <img src="img/project-images/pr1.2.png" class="img-fluid rounded my-4">
-    <br>
-    <img src="img/project-images/pr1.3.png" class="img-fluid rounded my-4">
-    `,
+// Build the gallery section inside the modal using image/video data from the project record
+function renderMediaGallery(mediaItems) {
+    if (!mediaItems || mediaItems.length === 0) {
+        return "";
+    }
 
-    project2: `
-    <h2>Digital Skills Roadmap</h2>
-    <p class="text-muted">Nov 2025</p>
+    return `
+        <div class="modal-gallery">
+            ${mediaItems.map(item => {
+                if (item.type === "video") {
+                    // Detect video type from file extension
+                    const fileExt = item.src.split('.').pop().toLowerCase();
+                    let mimeType = "video/mp4";
+                    if (fileExt === "mkv") mimeType = "video/x-matroska";
+                    else if (fileExt === "webm") mimeType = "video/webm";
+                    
+                    return `
+                        <div class="modal-media-card">
+                            <video controls preload="metadata" class="modal-media">
+                                <source src="${item.src}" type="${mimeType}">
+                                Your browser does not support the video tag.
+                            </video>
+                            ${item.caption ? `<p class="media-caption">${item.caption}</p>` : ""}
+                        </div>
+                    `;
+                }
 
+                return `
+                    <div class="modal-media-card">
+                        <img src="${item.src}" alt="${item.alt || "Project preview"}" class="modal-media">
+                        ${item.caption ? `<p class="media-caption">${item.caption}</p>` : ""}
+                    </div>
+                `;
+            }).join("")}
+        </div>
+    `;
+}
 
-    <p>
-        A research project exploring digital skills in modern careers,
-        including job roles, employer expectations, and a personal
-        career development plan.
-    </p>
+// Create the full HTML content shown in the modal for a selected project
+function renderProjectModal(project) {
+    const actionButtons = `
+        <div class="modal-actions">
+            ${project.repoUrl ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="modal-action-btn repo-btn"><i class="bi bi-github"></i> GitHub Repository</a>` : ""}
+            ${project.websiteUrl ? `<a href="${project.websiteUrl}" target="_blank" rel="noopener noreferrer" class="modal-action-btn website-btn"><i class="bi bi-box-arrow-up-right"></i> View Website</a>` : ""}
+        </div>
+    `;
 
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-        <span class="tag">Research</span>
-        <span class="tag">Career Planning</span>
-        <span class="tag">Digital Skills</span>
-        <span class="tag">Analysis</span>
-    </div>
+    return `
+        <div class="modal-shell">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">Featured Project</p>
+                    <h2>${project.title}</h2>
+                    <p class="modal-date">${project.date}</p>
+                </div>
+                <span class="modal-pill">${project.category}</span>
+            </div>
 
+            <div class="modal-body-content">
+                <p class="modal-description">${project.description}</p>
 
-  `,
+                <div class="modal-tags">
+                    ${project.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join("")}
+                </div>
 
-    project3: `
-    <h2>Unity Game</h2>
-    <p class="text-muted">Oct 2025</p>
+                ${actionButtons}
 
+                <div class="modal-gallery-section">
+                    <div class="gallery-heading">
+                        <h3>Project Gallery</h3>
+                        <p>Images and video from the final build and showcase materials.</p>
+                    </div>
+                    ${renderMediaGallery(project.media)}
+                </div>
+            </div>
+        </div>
+    `;
+}
 
-    <p>
-        This project is a prototype 2D video game developed using the
-        Unity Game Engine, inspired by classic games such as Asteroids
-        and Geometry Wars.
-    </p>
+// Open the modal and display the matching project details
+async function openModal(id) {
+    await loadProjects();
 
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-      <span class="tag">Unity</span>
-      <span class="tag">Game Dev</span>
-      <span class="tag">2D Graphics</span>
-      <span class="tag">Gameplay</span>
-    </div>
+    const project = projectDetails[id];
 
+    if (!project) return;
 
-    <video controls class="img-fluid rounded my-4">
-        <source src="img/project-images/game.mkv" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-  `,
-
-
-    project4: `
-    <h2>Database System</h2>
-    <p class="text-muted">Jan 2026</p>
-
-    <p>
-        A database system built using SQLite to manage users, products, and sales data, including CRUD operations and data analysis for business insights.
-    </p>
-
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-        <span class="tag">SQLite</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Database</span>
-        <span class="tag">CRUD</span>
-        <span class="tag">Data Analysis</span>
-    </div>
-
-    <img src="img/project-images/pr-data.png" class="img-fluid rounded my-4">
-
-  `,
-
-    project5: `
-    <h2>Escape Room Game</h2>
-    <p class="text-muted">May 2026</p>
-
-
-    <p>
-        An interactive text-based escape room game built as a console application, featuring
-        puzzles, item collection, and room exploration.
-    </p>
-
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-        <span class="tag">Python</span>
-        <span class="tag">Game Logic</span>
-        <span class="tag">Problem Solving</span>
-    </div>
-
-    <img src="img/project-images/pr5.png" class="img-fluid rounded my-4">
-
-  `,
-
-    project6: `
-    <h2>Digital Wellbeing Project</h2>
-    <p class="text-muted">Jun 2026</p>
-
-
-    <p>
-        A digital wellbeing project created for InternetMatters.org, designed to promote
-        healthy technology use through an engaging website for college
-        students.
-    </p>
-
-    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-        <span class="tag">UI/UX</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Bootstrap</span>
-    </div>
-
-    <img src="img/project-images/pr6.1.png" class="img-fluid rounded my-4">
-    <br>
-
-    <img src="img/project-images/pr6.2.png" class="img-fluid rounded my-4">
-    <br>
-
-    <img src="img/project-images/pr6.3.png" class="img-fluid rounded my-4">
-    `,
-
-
-};
-
-function openModal(id) {
-
-    document.getElementById("modal-body").innerHTML = projectDetails[id];
+    document.getElementById("modal-body").innerHTML = renderProjectModal(project);
 
     document.getElementById("projectModal").style.display = "flex";
-    document.body.style.overflow = "hidden"; // stop scroll
+    document.body.style.overflow = "hidden";
 }
 
 function closeModal() {

@@ -1,8 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Run timeline layout and filtering once the timeline items have been rendered
+document.addEventListener("DOMContentLoaded", async () => {
+    await window.timelineProjectsReady;
 
     const timeline = document.getElementById("timeline");
-    let items = Array.from(document.querySelectorAll(".timeline-item"));
+    if (!timeline) return;
 
+    let items = Array.from(timeline.querySelectorAll(".timeline-item"));
+
+    // Alternate items between left and right sides of the timeline
     function setItemPositions(itemList) {
         itemList.forEach((item, index) => {
             item.classList.remove("left", "right");
@@ -10,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Sort the timeline by date before applying layout and filters
     function sortTimelineItems() {
         items.sort((a, b) => {
             const dateA = new Date(a.dataset.date || "1970-01-01");
@@ -23,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sortTimelineItems();
 
-    // ✅ SCROLL ANIMATION
+    // Add the reveal animation when an item enters the viewport
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -34,14 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     items.forEach(item => observer.observe(item));
 
-    // ✅ FILTER STATE
+    // Track the active filters for type and category
     let typeFilter = "all";
     let catFilter = "all";
 
     const typeButtons = document.querySelectorAll(".filter-btn");
     const catButtons = document.querySelectorAll(".cat-btn");
 
-    // ✅ FILTER FUNCTION
+    // Show or hide items based on the current filters
     function applyFilters() {
         const visibleItems = [];
 
@@ -70,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setItemPositions(visibleItems);
     }
 
-    // ✅ TYPE FILTER BUTTONS
+    // Handle clicks on the type filter buttons
     typeButtons.forEach(btn => {
         btn.addEventListener("click", () => {
 
@@ -82,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ✅ CATEGORY FILTER BUTTONS
+    // Handle clicks on the category filter buttons
     catButtons.forEach(btn => {
         btn.addEventListener("click", () => {
 

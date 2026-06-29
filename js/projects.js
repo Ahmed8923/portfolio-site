@@ -1,6 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const items = document.querySelectorAll(".timeline-item");
+    const timeline = document.getElementById("timeline");
+    let items = Array.from(document.querySelectorAll(".timeline-item"));
+
+    function setItemPositions(itemList) {
+        itemList.forEach((item, index) => {
+            item.classList.remove("left", "right");
+            item.classList.add(index % 2 === 0 ? "left" : "right");
+        });
+    }
+
+    function sortTimelineItems() {
+        items.sort((a, b) => {
+            const dateA = new Date(a.dataset.date || "1970-01-01");
+            const dateB = new Date(b.dataset.date || "1970-01-01");
+            return dateB - dateA;
+        });
+
+        items.forEach(item => timeline.appendChild(item));
+        setItemPositions(items);
+    }
+
+    sortTimelineItems();
 
     // ✅ SCROLL ANIMATION
     const observer = new IntersectionObserver(entries => {
@@ -22,17 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ✅ FILTER FUNCTION
     function applyFilters() {
-        items.forEach(item => {
+        const visibleItems = [];
 
+        items.forEach((item, index) => {
             const matchType =
                 typeFilter === "all" || item.classList.contains(typeFilter);
 
             const matchCat =
                 catFilter === "all" || item.classList.contains(catFilter);
 
-            // ✅ toggle hide class
-            item.classList.toggle("hide", !(matchType && matchCat));
+            const shouldShow = matchType && matchCat;
+
+            item.style.transitionDelay = shouldShow ? `${index * 45}ms` : "0ms";
+
+            if (shouldShow) {
+                item.classList.remove("hide");
+                item.classList.add("show");
+                visibleItems.push(item);
+            } else {
+                item.classList.remove("show");
+                item.classList.add("hide");
+                item.classList.remove("left", "right");
+            }
         });
+
+        setItemPositions(visibleItems);
     }
 
     // ✅ TYPE FILTER BUTTONS

@@ -1,0 +1,172 @@
+:root {
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.09);
+}
+
+.connect-hero {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.connect-intro h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.section-label {
+    color: #dc3545;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.section-copy {
+    color: #bcbcbc;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.connect-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 1.5rem 0 1rem;
+}
+
+.availability-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #e7e7e7;
+    font-size: 0.95rem;
+}
+
+.availability-pill i {
+    color: #2ecc71;
+    font-size: 10px;
+}
+
+.connect-card,
+.info-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.connect-card {
+    padding: 24px;
+}
+
+.card-top h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.contact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(220, 53, 69, 0.5);
+    color: inherit;
+}
+
+.contact-item strong {
+    display: block;
+    color: #fff;
+}
+
+.contact-item span {
+    color: #bcbcbc;
+    font-size: 0.92rem;
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(220, 53, 69, 0.14);
+    color: #dc3545;
+}
+
+.message-box {
+    padding: 16px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(220,53,69,0.16), rgba(255,255,255,0.03));
+    border: 1px solid rgba(220,53,69,0.2);
+}
+
+.message-box h6 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.message-box p {
+    color: #cfcfcf;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.info-panel {
+    padding: 24px;
+    height: 100%;
+}
+
+.info-panel i {
+    color: #dc3545;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.info-panel h5 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.info-panel p {
+    color: #bcbcbc;
+    margin: 0;
+    line-height: 1.7;
+}
+
+
+@media (max-width: 767px) {
+    .connect-hero {
+        padding-top: 2rem;
+    }
+
+    .connect-card,
+    .info-panel {
+        padding: 20px;
+    }
+}

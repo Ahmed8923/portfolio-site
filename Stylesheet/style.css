@@ -123,6 +123,25 @@ main {
   top: 8px;
 }
 
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+
 .footer {
     position: fixed;
     left: 0;

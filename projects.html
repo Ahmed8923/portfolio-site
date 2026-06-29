@@ -4,20 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ahmed Banna</title>
+    <title>Ahmed Portfolio</title>
 
-    <!--  Bootstrap CSS -->
+    <!-- ✅ Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Stylesheet/style.css" />
-    <link rel="stylesheet" href="Stylesheet/home.css" />
-    <link rel="stylesheet" href="Stylesheet/animation.css" />
+    <link rel="stylesheet" href="Stylesheet/projects.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 </head>
 
-<body class=" text-white" id="top">
-    <!-- Main Navbar -->
+<body class=" text-white">
+    <!-- ✅ Main Navbar (Responsive) -->
     <nav class="navbar navbar-expand-lg bg-dark shadow-sm">
         <div class="container">
             <!-- Left: Name -->
@@ -35,10 +33,10 @@
                 <!-- Center: Links -->
                 <ul class="navbar-nav mx-auto gap-lg-4 text-center">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold text-danger" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
+                        <a class="nav-link fw-semibold text-danger" href="projects.html">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -60,296 +58,162 @@
 
     <main class="fade-up">
 
-        <!--  Hero Section -->
-        <section class="py-5">
+        <section class="projects-page py-5">
             <div class="container">
-                <div class="row align-items-center text-center text-md-start">
-                    <!-- LEFT -->
-                    <div class="col-md-6">
-                        <h1 class="fw-bold display-4">
-                            Hi, I'm <span class="text-danger">Ahmed</span> 👋 <br />
-                            Building My Future in <span class="text-danger">Tech 🚀</span>
-                        </h1>
+                <h1 class="text-center fw-bold mb-5">
+                    My Projects <span class="text-danger">Timeline</span>
+                </h1>
 
-                        <p class="mt-3 text-light lead">
-                            I enjoy turning ideas into real projects through code,
-                            constantly improving my skills in programming and
-                            problem-solving.
-                        </p>
+                <div class="container mb-4">
+
+                    <!-- TYPE FILTER -->
+                    <div class="mb-3 text-center">
+                        <button class="btn active btn-outline-light me-2 filter-btn" data-filter="all">All</button>
+                        <button class="btn btn-outline-light me-2 filter-btn" data-filter="college">College</button>
+                        <button class="btn btn-outline-light me-2 filter-btn" data-filter="own">Own</button>
                     </div>
 
-                    <!-- RIGHT -->
-                    <div class="col-md-6 mt-4 mt-md-0 text-center">
-                        <img src="img/fp.png" alt="Ahmed Banna" class="img-fluid w-75" />
+                    <!-- CATEGORY FILTER -->
+                    <div class="text-center">
+                        <button class="btn active btn-sm btn-outline-light me-2 cat-btn" data-cat="all">All</button>
+                        <button class="btn btn-sm btn-outline-light me-2 cat-btn" data-cat="web">Web</button>
+                        <button class="btn btn-sm btn-outline-light me-2 cat-btn" data-cat="game">Game</button>
+                        <button class="btn btn-sm btn-outline-light me-2 cat-btn" data-cat="database">Database</button>
+                        <button class="btn btn-sm btn-outline-light me-2 cat-btn" data-cat="research">Research</button>
                     </div>
+
+                </div>
+
+                <div class="timeline" id="timeline">
+                    <div class="timeline-item left reveal college web" onclick="openModal('project1')">
+                        <div class="content">
+                            <span class="date">Oct 2025</span>
+                            <h4>Promotional Website</h4>
+                            <p>
+                                A promotional website designed for a public figure, featuring
+                                a product catalogue, contact form, and latest updates, built
+                                with a focus on responsive design and user experience.
+                            </p>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">UI Design</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right reveal college research" onclick="openModal('project2')">
+                        <div class="content">
+                            <span class="date">Nov 2025</span>
+                            <h4>Digital Skills Roadmap</h4>
+                            <p>
+                                A research project exploring digital skills in modern careers,
+                                including job roles, employer expectations, and a personal
+                                career development plan.
+                            </p>
+                            <span class="tag">Research</span>
+                            <span class="tag">Career Planning</span>
+                            <span class="tag">Digital Skills</span>
+                            <span class="tag">Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left reveal college game" onclick="openModal('project3')">
+                        <div class="content">
+                            <span class="date">Jan 2026</span>
+                            <h4>Unity Game</h4>
+                            <p>
+                                This project is a prototype 2D video game developed using the
+                                Unity Game Engine, inspired by classic games such as Asteroids
+                                and Geometry Wars.
+                            </p>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Game Dev</span>
+                            <span class="tag">2D Graphics</span>
+                            <span class="tag">Gameplay</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item right reveal college database" onclick="openModal('project4')">
+                        <div class="content">
+                            <span class="date">Feb 2026</span>
+                            <h4>Database System</h4>
+                            <p>
+                                A database system built using SQLite to manage users, products, and sales data,
+                                including CRUD operations and data analysis for business insights.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">SQLite</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">Database</span>
+                                <span class="tag">CRUD</span>
+                                <span class="tag">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item left reveal college game" onclick="openModal('project5')">
+                        <div class="content">
+                            <span class="date">May 2026</span>
+                            <h4>Escape Room Game</h4>
+                            <p>
+                                An interactive text-based escape room game built as a console application, featuring
+                                puzzles, item collection, and room exploration.
+                            </p>
+                            <span class="tag">Python</span>
+                            <span class="tag">Game Logic</span>
+                            <span class="tag">Problem Solving</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item right reveal college web" onclick="openModal('project6')">
+                        <div class="content">
+                            <span class="date">Jun 2026</span>
+                            <h4>Digital Wellbeing Project</h4>
+                            <p>
+                                A digital wellbeing project created for InternetMatters.org, designed to promote
+                                healthy technology use through an engaging website for college
+                                students.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!--  Where You Can Start -->
-        <section class="py-5">
-            <div class="container">
-                <!-- Title -->
-                <h2 class="text-center display-6 fw-bold mb-4">Where you can start<span class="text-danger">.</span>
-                </h2>
+        <div id="projectModal" class="project-modal">
 
-                <div class="row g-4">
-                    <!-- ITEM 1 -->
-                    <div class="col-md-6 col-lg-3">
-                        <a href="#my_journey" class="start-card d-block">
-                            <div class="p-4 rounded">
-                                <i class="bi bi-person fs-3 mb-3"></i>
-                                <h6>My journey</h6>
-                            </div>
-                        </a>
-                    </div>
+            <div class="modal-content">
 
-                    <!-- ITEM 2 -->
-                    <div class="col-md-6 col-lg-3">
-                        <a href="projects.html" class="start-card d-block">
-                            <div class="p-4 rounded">
-                                <i class="bi bi-folder fs-3 mb-3"></i>
-                                <h6>Explore my projects</h6>
-                            </div>
-                        </a>
-                    </div>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
 
-                    <!-- ITEM 3 -->
-                    <div class="col-md-6 col-lg-3">
-                        <a href="#" class="start-card d-block">
-                            <div class="p-4 rounded">
-                                <i class="bi bi-book fs-3 mb-3"></i>
-                                <h6>View coursework</h6>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- ITEM 4 -->
-                    <div class="col-md-6 col-lg-3">
-                        <a href="connect.html" class="start-card d-block">
-                            <div class="p-4 rounded">
-                                <i class="bi bi-envelope fs-3 mb-3"></i>
-                                <h6>Contact me</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ✅ My College Projects -->
-        <section class="projects py-5">
-            <div class="container py-5">
-                <h2 class="text-center display-6 fw-bold mb-4">My College Projects<span class="text-danger">.</span>
-                </h2>
-                <div class="row pb-3">
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-laptop"></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Promotional Website</h4>
-                                <div class="project-tags">
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">UI Design</span>
-                                </div>
-
-                                <p>
-                                    A promotional website designed for a public figure,
-                                    featuring a product catalogue, contact form, and latest
-                                    updates, built with a focus on responsive design and user
-                                    experience.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-graph-up"></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Digital Skills Roadmap</h4>
-                                <div class="project-tags">
-                                    <span class="tag">Research</span>
-                                    <span class="tag">Career Planning</span>
-                                    <span class="tag">Digital Skills</span>
-                                    <span class="tag">Analysis</span>
-                                </div>
-
-                                <p>
-                                    A research project exploring digital skills in modern careers, including job roles,
-                                    employer expectations, and a personal career development plan.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-controller"></i></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Unity Game</h4>
-                                <div class="project-tags">
-                                    <span class="tag">Unity</span>
-                                    <span class="tag">Game Dev</span>
-                                    <span class="tag">2D Graphics</span>
-                                    <span class="tag">Gameplay</span>
-                                </div>
-
-                                <p>
-                                    This project is a prototype 2D video game developed using
-                                    the Unity Game Engine, inspired by classic games such as
-                                    Asteroids and Geometry Wars.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row pb-3">
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-database"></i></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Database System</h4>
-                                <div class="project-tags">
-                                    <span class="tag">SQLite</span>
-                                    <span class="tag">SQL</span>
-                                    <span class="tag">Database</span>
-                                    <span class="tag">CRUD</span>
-                                    <span class="tag">Data Analysis</span>
-                                </div>
-
-                                <p>
-                                    A database system built using SQLite to manage users, products, and sales data,
-                                    including CRUD operations and data analysis for business insights.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-puzzle"></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Escape Room Game</h4>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Game Logic</span>
-                                    <span class="tag">Problem Solving</span>
-                                </div>
-
-                                <p>
-                                    An interactive text-based escape room game built as a console application, featuring
-                                    puzzles, item collection, and room exploration.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3 d-flex">
-                        <div class="card text-center py-3 w-100">
-                            <div class="card-body">
-                                <div class="circle">
-                                    <span><i class="bi bi-heart-pulse"></i></i></span>
-                                </div>
-                                <h4 class="font-weight-bold pb-2">Digital Wellbeing Project</h4>
-                                <div class="project-tags">
-
-                                    <span class="tag">UI/UX</span>
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Bootstrap</span>
-                                </div>
-
-                                <p>
-                                    A digital wellbeing project created for InternetMatters.org, designed to promote
-                                    healthy technology use through an engaging website for college
-                                    students.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ✅ My Journey -->
-        <section class="about-story py-5" id="my_journey">
-            <div class="container">
-
-                <div class="row align-items-center">
-
-                    <div class="col-lg-6">
-                        <h2 class="display-6 fw-bold mb-4">
-                            My Journey<span class="text-danger">.</span>
-                        </h2>
-
-                        <p>
-                            I've always enjoyed understanding how things work and
-                            finding ways to improve them. That curiosity led me into
-                            computing, where I discovered a passion for building
-                            websites, solving problems, and creating software that
-                            people can actually use.
-                        </p>
-
-                        <p>
-                            During college I've built responsive websites, database
-                            systems, Unity and text based game while
-                            improving my skills in HTML, CSS, Bootstrap, JavaScript,
-                            SQL & Python.
-                        </p>
-
-                        <p>
-                            My goal is to continue learning, take on new challenges,
-                            and create software that has a real impact on people's
-                            lives.
-                        </p>
-
-                        <a href="#" class="btn btn-danger mt-3">More About Me</a>
-                    </div>
-
-                    <div class="col-lg-6 text-center">
-                        <img src="img/Pic2.png" alt="Ahmed Banna" class="img-fluid rounded-4 shadow" width="700">
-                    </div>
-
-                </div>
+                <div id="modal-body"></div>
 
             </div>
-        </section>
 
 
 
-
+        </div> 
+        
         <!--- Footer -->
         <footer class="footer py-4">
             <div
                 class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
-
                 <p class="mb-3 mb-md-0">
                     © 2026 Ahmed Banna. Built with <span class="heart">❤</span> & Ai.
                 </p>
-
-                <a href="#top" class="back-to-top">
-                    Back to top <i class="bi bi-arrow-up"></i>
-                </a>
-
             </div>
         </footer>
     </main>
 
-
-
     <!-- ✅ Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script src="js/projects.js"></script>
     <script src="js/project-model.js"></script>
 </body>
 

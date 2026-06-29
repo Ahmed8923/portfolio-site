@@ -164,10 +164,13 @@
 .modal-content {
     width: 100%;
     padding: 30px;
-    text-align: center;
+    background: #14171c;
     color: white;
+    text-align: center;
     overflow-y: auto;
     max-height: 90vh;
+    animation: fadeIn 0.4s ease;
+
 }
 
 .close-btn {
@@ -179,9 +182,6 @@
 }
 
 
-.modal-content {
-    animation: fadeIn 0.4s ease;
-}
 
 @keyframes fadeIn {
     from {
@@ -193,4 +193,13 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+
+
+/* Carousel dark fit */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
 }

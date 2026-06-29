@@ -8,10 +8,10 @@ const projectIcons = {
     project6: "bi-heart-pulse"
 };
 
-// Fetch project data from the API and render the home page cards
+// Fetch project data from the static JSON file and render the home page cards
 async function loadHomeProjects() {
     try {
-        const response = await fetch('/api/projects');
+        const response = await fetch('data/projects.json');
         const projects = await response.json();
 
         const container = document.getElementById('projectsContainer');

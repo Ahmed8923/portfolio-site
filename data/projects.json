@@ -1,0 +1,140 @@
+[
+  {
+    "id": "project1",
+    "title": "Responsive Portfolio Website",
+    "description": "A responsive portfolio interface built with HTML, CSS, and Bootstrap to display work clearly across devices.",
+    "date": "June 2026",
+    "dateSort": "2026-06-01",
+    "category": "Web",
+    "type": "college",
+    "tags": ["HTML", "CSS", "Bootstrap"],
+    "repoUrl": "https://github.com/ahmedbanna/portfolio-website",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr1.png",
+        "alt": "Portfolio homepage",
+        "caption": "The homepage design for the portfolio site."
+      },
+      {
+        "type": "image",
+        "src": "img/project-images/pr1.2.png",
+        "alt": "Project cards section",
+        "caption": "Project cards and summary layout."
+      },
+      {
+        "type": "image",
+        "src": "img/project-images/pr1.3.png",
+        "alt": "Mobile responsive view",
+        "caption": "Mobile-responsive layout for smaller screens."
+      }
+    ]
+  },
+  {
+    "id": "project2",
+    "title": "College Data Visualization",
+    "description": "A data visualization project that uses charts and graphs to tell stories from real college data.",
+    "date": "May 2026",
+    "dateSort": "2026-05-01",
+    "category": "Research",
+    "type": "college",
+    "tags": ["JavaScript", "Charts", "Data"],
+    "repoUrl": "https://github.com/ahmedbanna/data-visualization",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr-data.png",
+        "alt": "Data visualization overview",
+        "caption": "Visual summary of the research dashboard."
+      }
+    ]
+  },
+  {
+    "id": "project3",
+    "title": "Game Concept Prototype",
+    "description": "A simple game prototype demonstrating interactive controls, scoring, and smooth animation.",
+    "date": "April 2026",
+    "dateSort": "2026-04-01",
+    "category": "Game",
+    "type": "own",
+    "tags": ["JavaScript", "Animation", "Game Design"],
+    "repoUrl": "https://github.com/ahmedbanna/game-prototype",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr5.png",
+        "alt": "Game prototype screenshot",
+        "caption": "Preview of the game interface and controls."
+      }
+    ]
+  },
+  {
+    "id": "project4",
+    "title": "Database Management Tool",
+    "description": "A database project demonstrating records management, search, and user-friendly organization.",
+    "date": "March 2026",
+    "dateSort": "2026-03-01",
+    "category": "Database",
+    "type": "college",
+    "tags": ["SQL", "Python", "Database"],
+    "repoUrl": "https://github.com/ahmedbanna/database-tool",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr6.1.png",
+        "alt": "Database UI overview",
+        "caption": "Interface for managing project records."
+      },
+      {
+        "type": "image",
+        "src": "img/project-images/pr6.2.png",
+        "alt": "Database table view",
+        "caption": "Sample data table from the database project."
+      }
+    ]
+  },
+  {
+    "id": "project5",
+    "title": "Interactive UX Redesign",
+    "description": "A user experience redesign for an interactive interface, focusing on clarity, accessibility, and motion.",
+    "date": "February 2026",
+    "dateSort": "2026-02-01",
+    "category": "Web",
+    "type": "own",
+    "tags": ["Design", "UX", "Interaction"],
+    "repoUrl": "",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr6.3.png",
+        "alt": "Redesign preview",
+        "caption": "A clean interface redesign for usability."
+      }
+    ]
+  },
+  {
+    "id": "project6",
+    "title": "Performance Monitoring Dashboard",
+    "description": "A dashboard project that tracks performance metrics and displays them with clear visual cues.",
+    "date": "January 2026",
+    "dateSort": "2026-01-01",
+    "category": "Research",
+    "type": "college",
+    "tags": ["Dashboard", "Analytics", "Metrics"],
+    "repoUrl": "",
+    "websiteUrl": "projects.html",
+    "media": [
+      {
+        "type": "image",
+        "src": "img/project-images/pr6.1.png",
+        "alt": "Performance dashboard",
+        "caption": "Analytics dashboard mockup for monitoring trends."
+      }
+    ]
+  }
+]

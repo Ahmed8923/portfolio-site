@@ -1,7 +1,7 @@
-// Fetch projects from the API and render them as timeline items
+// Fetch projects from the static JSON file and render them as timeline items
 async function loadTimelineProjects() {
     try {
-        const response = await fetch('/api/projects');
+        const response = await fetch('data/projects.json');
         const projects = await response.json();
 
         const timeline = document.getElementById('timeline');
@@ -11,10 +11,12 @@ async function loadTimelineProjects() {
 
         projects.forEach((project, index) => {
             const position = index % 2 === 0 ? 'left' : 'right';
-            const tagsList = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            const tagsList = (project.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('');
+            const typeClass = project.type ? project.type.toString().toLowerCase() : 'college';
+            const categoryClass = project.category ? project.category.toString().toLowerCase().replace(/\s+/g, '-') : 'other';
 
             const timelineItem = document.createElement('div');
-            timelineItem.className = `timeline-item ${position} reveal ${project.type} ${project.categoryFilter}`;
+            timelineItem.className = `timeline-item ${position} reveal ${typeClass} ${categoryClass}`;
             timelineItem.dataset.date = project.dateSort;
             timelineItem.addEventListener('click', () => openModal(project.id));
 

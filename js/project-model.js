@@ -2,13 +2,13 @@
 let projectDetails = {};
 let projectDataPromise = null;
 
-// Load all project data from the SQLite-backed API once and reuse it
+// Load all project data from the static JSON file once and reuse it
 async function loadProjects() {
     if (projectDataPromise) return projectDataPromise;
 
     projectDataPromise = (async () => {
         try {
-            const response = await fetch('/api/projects');
+            const response = await fetch('data/projects.json');
             const projectsArray = await response.json();
 
             projectsArray.forEach(project => {
@@ -84,7 +84,7 @@ function renderProjectModal(project) {
                 <p class="modal-description">${project.description}</p>
 
                 <div class="modal-tags">
-                    ${project.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join("")}
+                    ${Array.isArray(project.tags) ? project.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join("") : ""}
                 </div>
 
                 ${actionButtons}
@@ -94,7 +94,7 @@ function renderProjectModal(project) {
                         <h3>Project Gallery</h3>
                         <p>Images and video from the final build and showcase materials.</p>
                     </div>
-                    ${renderMediaGallery(project.media)}
+                    ${renderMediaGallery(Array.isArray(project.media) ? project.media : [])}
                 </div>
             </div>
         </div>

@@ -113,9 +113,19 @@ async function openModal(id) {
 
     document.getElementById("projectModal").style.display = "flex";
     document.body.style.overflow = "hidden";
+
+    const navbar = document.querySelector("nav.navbar");
+    if (navbar) {
+        navbar.classList.add("navbar-hidden");
+    }
 }
 
 function closeModal() {
     document.getElementById("projectModal").style.display = "none";
     document.body.style.overflow = "auto";
+
+    const navbar = document.querySelector("nav.navbar");
+    if (navbar) {
+        navbar.classList.remove("navbar-hidden");
+    }
 }

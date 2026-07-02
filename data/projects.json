@@ -15,40 +15,7 @@
     "repoUrl": "https://github.com/Ahmed8923/T.K-Maxx",
     "websiteUrl": "https://ahmed8923.github.io/T.K-Maxx/",
     "media": [
-      {
-        "type": "image",
-        "src": "img/project-images/pr1.png",
-        "alt": "Promotional website homepage"
-      },
-      {
-        "type": "image",
-        "src": "img/project-images/pr1.2.png",
-        "alt": "Product catalogue section"
-      },
-      {
-        "type": "image",
-        "src": "img/project-images/pr1.3.png",
-        "alt": "Mobile responsive view"
-      }
     ]
-  },
-  {
-    "id": "project2",
-    "title": "Digital Skills Roadmap",
-    "description": "A research project exploring digital skills in modern careers, including job roles, employer expectations, and a personal career development plan.",
-    "date": "November 2025",
-    "dateSort": "2025-11-01",
-    "category": "Research",
-    "type": "college",
-    "tags": [
-      "Research",
-      "Career Planning",
-      "Digital Skills",
-      "Analytics"
-    ],
-    "repoUrl": "",
-    "websiteUrl": "",
-    "media": []
   },
   {
     "id": "project3",

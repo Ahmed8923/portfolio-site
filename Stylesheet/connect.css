@@ -30,7 +30,6 @@
     color: #bcbcbc;
     font-size: 1.02rem;
     line-height: 1.8;
-    max-width: 650px;
 }
 
 .connect-actions {
@@ -221,7 +220,6 @@
 }
 
 .reason-pill:hover {
-    border-color: rgba(220, 53, 69, 0.4);
     background: rgba(220, 53, 69, 0.06);
 }
 
@@ -232,10 +230,7 @@
 }
 
 .reason-pill input:checked + span {
-    color: #fff;
-    background: rgba(220, 53, 69, 0.12);
-    padding: 6px 10px;
-    border-radius: 999px;
+    color: #dc3545;
 }
 
 .message-field {

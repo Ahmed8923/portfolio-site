@@ -121,7 +121,6 @@ function renderProjectModal(project) {
                 <div class="modal-gallery-section">
                     <div class="gallery-heading">
                         <h3>Project Gallery</h3>
-                        <p>Images and video from the final build and showcase materials.</p>
                     </div>
                     ${renderMediaGallery(Array.isArray(project.media) ? project.media : [])}
                 </div>
